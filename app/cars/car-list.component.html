@@ -1,0 +1,67 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <!-- Filter the Products   -->
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-2'>Filter by:</div>
+            <div class='col-md-4'>
+                <input type='text' [(ngModel)]='listFilter' />
+            </div>
+        </div>
+        <div class='row' *ngIf='listFilter'>
+            <div class='col-md-6'>
+                <h3>Filtered by: {{listFilter}} </h3>
+            </div>
+        </div>
+
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+        <div class='table-responsive'>
+            <table class='table' *ngIf='cars && cars.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class='btn btn-primary' (click)='toggleImage()'>
+                                {{showImage ? 'Hide' : 'Show'}} Image
+                            </button>
+                        </th>
+                        <th>Brand</th>
+                        <th>Price (for sell)</th>
+                        <th>Price (for renting)</th>
+                        <th>Seats</th>
+                        <th>Engine</th>
+                        <th>Transmission</th>
+                        <th>Owner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='#car of cars'>
+                        <td>
+                            <img *ngIf='showImage'
+                                 [src]='car.imageUrl'
+                                 [title]='car.brand | uppercase'
+                                 [style.width.px]='imageWidth' 
+                                 [style.margin.px]='imageMargin'>
+                        </td>
+                        <td>{{car.brand}}</td>
+                        <td>{{ getInt(car.sellingPrice) | currency:'EUR':true:'1.2-2' }}</td>
+                        <td>{{ getInt(car.rentPrice) | currency:'EUR':true:'1.2-2'}}</td>
+                        <td>{{ car.seatNumber }}</td>
+                        <td>{{ car.engineVolume }}</td>
+                        <td>{{ car.transmission }}</td>
+                        <td>
+                            <img *ngIf = 'showImage'
+                                 [src]='getOwnerImage(car)'
+                                 title = "OWNER"
+                                 [style.width.px]='imageWidth' 
+                                 [style.margin.px]='imageMargin'>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
