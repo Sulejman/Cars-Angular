@@ -1,0 +1,50 @@
+<div class='panel panel-primary' *ngIf='car'>
+    <div class='panel-heading' style='font-size:large'>
+        {{pageTitle + ': ' + car.brand }}
+    </div>
+
+    <div class='panel-body'>
+        <div class='row'>
+            <div class='col-md-6'>
+                <div class='row'>
+                    <div class='col-md-3'>Brand:</div>
+                    <div class='col-md-6'>{{car.brand}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Price (for sell):</div>
+                    <div class='col-md-6'>{{getInt(car.sellingPrice) | currency:'EUR':true:'1.2-2'}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Price (for rent):</div>
+                    <div class='col-md-6'>{{getInt(car.rentPrice) | currency:'EUR':true:'1.2-2'}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Seats:</div>
+                    <div class='col-md-6'>{{car.seatNumber}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Engine:</div>
+                    <div class='col-md-6'>{{car.engineVolume}} cm3</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-3'>Transmission:</div>
+                    <div class='col-md-6'>{{car.transmission}}</div>
+                </div>
+            </div>
+
+            <div class='col-md-6'>
+                <img class='center-block img-responsive' 
+                     [style.width.px]='200' 
+                     [style.margin.px]='2' 
+                     [src]='car.imageUrl'
+                     [title]='car.brand'>
+            </div>
+        </div>
+    </div>
+
+    <div class='panel-footer'>
+        <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+            <i class='glyphicon glyphicon-chevron-left'></i> Back
+        </a>
+    </div>
+</div>

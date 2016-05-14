@@ -35,10 +35,10 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Observable'], function(
                         .do(function (data) { return console.log('All: ' + JSON.stringify(data)); })
                         .catch(this.handleError);
                 };
-                /*getCar(id: number): Observable<IProduct> {
-                    return this.getProducts()
-                        .map((products: IProduct[]) => products.find(p => p.productId === id));
-                }*/
+                CarService.prototype.getCar = function (id) {
+                    return this.getCars()
+                        .map(function (products) { return products.find(function (car) { return car.id === id; }); });
+                };
                 CarService.prototype.handleError = function (error) {
                     // in a real world app, we may send the server to some remote logging infrastructure
                     // instead of just logging it to the console

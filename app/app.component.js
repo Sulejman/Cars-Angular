@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './products/product-list.component', './cars/car-list.component', './products/product.service', './home/welcome.component', './products/product-detail.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router', './products/product-list.component', './cars/car-list.component', './products/product.service', './cars/car.service', './home/welcome.component', './products/product-detail.component', './cars/car-detail.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, http_1, router_1, product_list_component_1, car_list_component_1, product_service_1, welcome_component_1, product_detail_component_1;
+    var core_1, http_1, router_1, product_list_component_1, car_list_component_1, product_service_1, car_service_1, welcome_component_1, product_detail_component_1, car_detail_component_1;
     var AppComponent;
     return {
         setters:[
@@ -33,11 +33,17 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
             function (product_service_1_1) {
                 product_service_1 = product_service_1_1;
             },
+            function (car_service_1_1) {
+                car_service_1 = car_service_1_1;
+            },
             function (welcome_component_1_1) {
                 welcome_component_1 = welcome_component_1_1;
             },
             function (product_detail_component_1_1) {
                 product_detail_component_1 = product_detail_component_1_1;
+            },
+            function (car_detail_component_1_1) {
+                car_detail_component_1 = car_detail_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -49,7 +55,7 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
                         selector: 'pm-app',
                         template: "\n    <div>\n        <nav class='navbar navbar-default'>\n            <div class='container-fluid'>\n                <a class='navbar-brand'>{{pageTitle}}</a>\n                <ul class='nav navbar-nav'>\n                    <li><a [routerLink]=\"['Welcome']\">Home</a></li>\n                    <li><a [routerLink]=\"['Products']\">Product List</a></li>\n                    <li><a [routerLink]=\"['Cars']\">Car List</a></li>\n                </ul>\n            </div>\n        </nav>\n        <div class='container'>\n            <router-outlet></router-outlet>\n        </div>\n     </div>\n     ",
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        providers: [product_service_1.ProductService,
+                        providers: [product_service_1.ProductService, car_service_1.CarService,
                             http_1.HTTP_PROVIDERS,
                             router_1.ROUTER_PROVIDERS]
                     }),
@@ -57,7 +63,8 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/Rx', 'angular2/router',
                         { path: '/welcome', name: 'Welcome', component: welcome_component_1.WelcomeComponent, useAsDefault: true },
                         { path: '/products', name: 'Products', component: product_list_component_1.ProductListComponent },
                         { path: '/product/:id', name: 'ProductDetail', component: product_detail_component_1.ProductDetailComponent },
-                        { path: '/cars', name: 'Cars', component: car_list_component_1.CarListComponent }
+                        { path: '/cars', name: 'Cars', component: car_list_component_1.CarListComponent },
+                        { path: '/car/:id', name: 'CarDetail', component: car_detail_component_1.CarDetailComponent },
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

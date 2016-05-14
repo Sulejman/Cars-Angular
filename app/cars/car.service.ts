@@ -17,10 +17,10 @@ export class CarService {
             .catch(this.handleError);
     }
 
-    /*getCar(id: number): Observable<IProduct> {
-        return this.getProducts()
-            .map((products: IProduct[]) => products.find(p => p.productId === id));
-    }*/
+    getCar(id: number): Observable<ICar> {
+        return this.getCars()
+            .map((products: ICar[]) => products.find(car => car.id === id));
+    }
 
     private handleError(error: Response) {
         // in a real world app, we may send the server to some remote logging infrastructure

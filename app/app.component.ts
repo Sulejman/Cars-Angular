@@ -6,8 +6,11 @@ import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/route
 import { ProductListComponent } from './products/product-list.component';
 import { CarListComponent } from './cars/car-list.component';
 import { ProductService } from './products/product.service';
+import { CarService } from './cars/car.service';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
+import { CarDetailComponent } from './cars/car-detail.component';
+
 
 @Component({
     selector: 'pm-app',
@@ -29,7 +32,7 @@ import { ProductDetailComponent } from './products/product-detail.component';
      </div>
      `,
     directives: [ROUTER_DIRECTIVES],
-    providers: [ProductService,
+    providers: [ProductService,CarService,
                 HTTP_PROVIDERS,
                 ROUTER_PROVIDERS]
 })
@@ -37,7 +40,8 @@ import { ProductDetailComponent } from './products/product-detail.component';
     { path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true },
     { path: '/products', name: 'Products', component: ProductListComponent},
     { path: '/product/:id', name: 'ProductDetail', component: ProductDetailComponent },
-    { path: '/cars', name: 'Cars', component: CarListComponent }
+    { path: '/cars', name: 'Cars', component: CarListComponent },
+    { path: '/car/:id', name: 'CarDetail', component: CarDetailComponent },
 ])
 export class AppComponent {
     pageTitle: string = 'Product Management';

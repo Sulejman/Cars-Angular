@@ -2,13 +2,13 @@ import { Component, OnInit }  from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { ICar } from './car';
-//import { ProductFilterPipe } from './product-filter.pipe';
+// import { ProductFilterPipe } from './product-filter.pipe';
 import { CarService } from './car.service';
 
 @Component({
     templateUrl: 'app/cars/car-list.component.html',
     styleUrls: ['app/cars/car-list.component.css'],
-    //pipes: [ProductFilterPipe],
+    // pipes: [ProductFilterPipe],
     directives: [ROUTER_DIRECTIVES],
     providers: [CarService] 
 })
@@ -43,7 +43,7 @@ export class CarListComponent implements OnInit {
     getInt(stringNumber: string){
         return parseInt(stringNumber);
     }
-    
+
     getOwnerImage(carObject: ICar){
         if(carObject.ownerUser){
             return carObject.ownerUser.image;
@@ -53,6 +53,6 @@ export class CarListComponent implements OnInit {
         }
         else{
             return "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678069-sign-error-512.png";
-        }    
+        }
     }
 }

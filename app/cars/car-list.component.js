@@ -62,7 +62,7 @@ System.register(['angular2/core', 'angular2/router', './car.service'], function(
                     core_1.Component({
                         templateUrl: 'app/cars/car-list.component.html',
                         styleUrls: ['app/cars/car-list.component.css'],
-                        //pipes: [ProductFilterPipe],
+                        // pipes: [ProductFilterPipe],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [car_service_1.CarService]
                     }), 

@@ -46,7 +46,11 @@
                                  [style.width.px]='imageWidth' 
                                  [style.margin.px]='imageMargin'>
                         </td>
-                        <td>{{car.brand}}</td>
+                        <td>
+                            <a [routerLink]="['CarDetail',{id: car.id}]">
+                                {{car.brand}}
+                            </a>
+                        </td>
                         <td>{{ getInt(car.sellingPrice) | currency:'EUR':true:'1.2-2' }}</td>
                         <td>{{ getInt(car.rentPrice) | currency:'EUR':true:'1.2-2'}}</td>
                         <td>{{ car.seatNumber }}</td>
