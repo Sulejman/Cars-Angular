@@ -38,7 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='#car of cars'>
+                    <tr *ngFor='#car of cars | carFilter:listFilter'>
                         <td>
                             <img *ngIf='showImage'
                                  [src]='car.imageUrl'
@@ -48,6 +48,7 @@
                         </td>
                         <td>
                             <a [routerLink]="['CarDetail',{id: car.id}]">
+                                <!--<a href="http://www.google.ba">-->
                                 {{car.brand}}
                             </a>
                         </td>

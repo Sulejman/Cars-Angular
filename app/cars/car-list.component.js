@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './car.service'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './car-filter.pipe', './car.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './car.service'], function(
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, car_service_1;
+    var core_1, router_1, car_filter_pipe_1, car_service_1;
     var CarListComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['angular2/core', 'angular2/router', './car.service'], function(
             },
             function (router_1_1) {
                 router_1 = router_1_1;
+            },
+            function (car_filter_pipe_1_1) {
+                car_filter_pipe_1 = car_filter_pipe_1_1;
             },
             function (car_service_1_1) {
                 car_service_1 = car_service_1_1;
@@ -62,7 +65,7 @@ System.register(['angular2/core', 'angular2/router', './car.service'], function(
                     core_1.Component({
                         templateUrl: 'app/cars/car-list.component.html',
                         styleUrls: ['app/cars/car-list.component.css'],
-                        // pipes: [ProductFilterPipe],
+                        pipes: [car_filter_pipe_1.CarFilterPipe],
                         directives: [router_1.ROUTER_DIRECTIVES],
                         providers: [car_service_1.CarService]
                     }), 

@@ -2,13 +2,13 @@ import { Component, OnInit }  from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
 
 import { ICar } from './car';
-// import { ProductFilterPipe } from './product-filter.pipe';
+import { CarFilterPipe } from './car-filter.pipe';
 import { CarService } from './car.service';
 
 @Component({
     templateUrl: 'app/cars/car-list.component.html',
     styleUrls: ['app/cars/car-list.component.css'],
-    // pipes: [ProductFilterPipe],
+    pipes: [CarFilterPipe],
     directives: [ROUTER_DIRECTIVES],
     providers: [CarService] 
 })
